@@ -1,0 +1,14 @@
+{
+  "name": "TA Helper",
+  "version": "0.1",
+  "description": "A chrome extension that helps my job easier at TA Digital.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+   {
+    "matches": ["*://*.hrm.techaspect.com/*"],
+     "run_at": "document_idle",
+     "js": ["content.js"]
+   }
+ ],
+  "manifest_version": 2
+}
