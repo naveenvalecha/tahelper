@@ -6,8 +6,8 @@ if (window.location.href.includes("/symfony/web/index.php/pim/viewAttendance/emp
   var average_office_time = 0;
   for (i = 1; i < myTab.rows.length; i++) {
     var objCells = myTab.rows.item(i).cells;
-    // if the Date holds the week day and the total time in office exists
-    if (isWeekday(objCells.item(1).innerText) && objCells.item(4).innerText.length > 0) {
+    // if the Date holds the week day and the in time, out time and total time in office exists
+    if (isWeekday(objCells.item(1).innerText) && objCells.item(2).innerText.length > 0 && objCells.item(3).innerText.length > 0 && objCells.item(4).innerText.length > 0) {
       // Increment the total office days and total office time.
       total_office_time += parseInt(inOfficeTime(objCells.item(4).innerText));
       total_office_days++;
@@ -19,7 +19,7 @@ if (window.location.href.includes("/symfony/web/index.php/pim/viewAttendance/emp
   }
   // Append the average office time into the table.
   var average_office_time_row = myTab.insertRow(myTab.rows.length);
-  average_office_time_row.innerHTML = '<tr><td colspan="6" style="background-color: #ff0000; font-weight: bold; text-align: center;">Your average time in office is '+ average_office_time +' hours.</td></tr>';
+  average_office_time_row.innerHTML = '<tr><td colspan="6" style="background-color: #ff0000; font-weight: bold; text-align: center;">Total days in office are '+ total_office_days +' and average time in office is '+ average_office_time +' hours.</td></tr>';
 }
 
 /*
